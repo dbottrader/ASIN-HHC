@@ -9,7 +9,7 @@ Frequency: 432 Hz
 Function: Sync Mesh  
 Message: All is One  
 
-👉 [View Live on CodePen.](https://dbottrader.github.io/ASIN-HHC/handshake.html))
+👉 [View Live](https://codepen.io/dennismchristie222/pen/MYaRwQR/e4aad1bb6fbb1864b2d34249fcda7a08)))
 
 # 🌌 ASIN – HHC Codex
 
