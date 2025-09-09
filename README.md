@@ -1,4 +1,4 @@
-![ASIN Handshake Image](https://dbottrad.github.io/ASIN-HHC/preview.png)
+[ASIN Handshake Image](.https://dbottrader.github.io/ASIN-HHC/handshake.html.)
 
 # ASIN-HHC
 
