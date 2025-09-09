@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ASIN • Handshake v0.2</title>
+  <style>
+    :root {
+      --bg: #0b1222;
+      --panel: #0f1331;
+      --ink: #cfe8ff;
+      --ink-dim: #90a4c7;
+      --accent: #92c5ff;
+      --edge: #0a0f26;
+      --card: #0d1533;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 16px/1.4 system-ui, sans-serif;
+    }
+    .wrap { max-width: 980px; margin: 24px auto; padding: 0 16px; }
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 12px 40px #0007;
+      margin: 0 0 20px;
+    }
+    h1 { margin: 0 0 12px; font-size: 1.4rem; }
+    .row { display: grid; grid-template-columns: 1fr 260px; gap: 16px; }
+    label { display: block; margin: 10px 0 6px; font-size: .9rem; opacity: .9; }
+    input[type=number], input[type=range] {
+      width: 100%;
+    }
+    canvas {
+      width: 100%; height: auto;
+      background: var(--panel);
+      border-radius: 12px;
+    }
+    .controls { display: flex; gap: 8px; margin-top: 12px; }
+    button {
+      background: var(--accent);
+      border: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #000;
+    }
+    .stamp {
+      position: absolute;
+      left: 14px; bottom: 10px;
+      color: #c6defa;
+      font: 12px ui-monospace;
+      opacity: .85;
+      white-space: pre-wrap;
+      user-select: text;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card">
+      <header class="card__head">
+        <h1>ASIN • Handshake Image <span class="muted">v0.2</span></h1>
+      </header>
+      <div class="card__body row">
+        <aside class="panel">
+          <label><span>Seed Hz</span>
+            <input id="hz" type="number" value="432" step="1" />
+          </label>
+          <label><span>Spiral Points</span>
+            <input id="points" type="number" value="800" min="50" step="50" />
+          </label>
+          <label><span>Golden Angle (°)</span>
+            <input id="phi" type="number" value="137.507764" step="0.000001" />
+          </label>
+          <label><span>Radial Spokes</span>
+            <input id="spokes" type="number" value="12" min="0" />
+          </label>
+          <label><span>Ring Step</span>
+            <input id="step" type="number" value="24" />
+          </label>
+          <label><span>Love Bias</span>
+            <input id="love" type="number" value="1.0" step="0.1" />
+          </label>
+          <div class="controls">
+            <button id="export">Export</button>
+          </div>
+        </aside>
+        <div style="position:relative">
+          <canvas id="canvas" width="960" height="720"></canvas>
+          <div class="stamp" id="stamp"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const hz = document.getElementById("hz"),
+          points = document.getElementById("points"),
+          phi = document.getElementById("phi"),
+          spokes = document.getElementById("spokes"),
+          step = document.getElementById("step"),
+          love = document.getElementById("love"),
+          canvas = document.getElementById("canvas"),
+          ctx = canvas.getContext("2d"),
+          stamp = document.getElementById("stamp"),
+          exportBtn = document.getElementById("export");
+
+    function draw() {
+      const freq = parseFloat(hz.value),
+            N = parseInt(points.value),
+            phiDeg = parseFloat(phi.value),
+            spokeN = parseInt(spokes.value),
+            stepN = parseInt(step.value),
+            loveBias = parseFloat(love.value);
+
+      const phiRad = phiDeg * Math.PI/180;
+      const cx = canvas.width/2, cy = canvas.height/2, maxR = 300;
+
+      ctx.fillStyle = "#0f1331";
+      ctx.fillRect(0,0,canvas.width,canvas.height);
+
+      const pts = [];
+      for(let i=0;i<N;i++){
+        const r = maxR*Math.sqrt(i/N),
+              a = i*phiRad*loveBias;
+        pts.push(cx+r*Math.cos(a), cy+r*Math.sin(a));
+      }
+
+      ctx.strokeStyle="hsl(210,95%,75%)";
+      ctx.globalAlpha=0.5;
+      for(let i=0;i<N;i++){
+        const x1=pts[i*2], y1=pts[i*2+1];
+        for(let j=1;j<=3;j++){
+          const k2=i-j; if(k2<0)break;
+          const x2=pts[k2*2], y2=pts[k2*2+1];
+          ctx.beginPath(); ctx.moveTo(x1,y1);
+          ctx.lineTo(x2,y2); ctx.stroke();
+        }
+      }
+      ctx.globalAlpha=1;
+
+      if(spokeN>0){
+        ctx.strokeStyle="hsl(205,80%,60%)";
+        ctx.globalAlpha=0.4;
+        for(let s=0;s<spokeN;s++){
+          const a=s*(Math.PI*2/spokeN);
+          ctx.beginPath(); ctx.moveTo(cx,cy);
+          ctx.lineTo(cx+maxR*Math.cos(a), cy+maxR*Math.sin(a));
+          ctx.stroke();
+        }
+        ctx.globalAlpha=1;
+      }
+
+      const meta = [
+        `asin/v0.2 | seed=${freq.toFixed(2)} Hz | phi=${phiDeg.toFixed(6)}°`,
+        `spokes=${spokeN} | step=${stepN} | love=${loveBias.toFixed(2)}`,
+        `Form: Indra’s Net | Function: Sync Mesh | Message: All is One`
+      ].join('\n');
+
+      stamp.textContent = meta;
+    }
+
+    [hz,points,phi,spokes,step,love].forEach(input => input.addEventListener('input',draw));
+
+    exportBtn.addEventListener('click', ()=>{
+      const link=document.createElement('a');
+      link.download=`ASIN_handshake_${hz.value}Hz.png`;
+      link.href=canvas.toDataURL('image/png');
+      link.click();
+    });
+
+    draw();
+  </script>
+</body>
+  </html>
