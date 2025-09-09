@@ -1,4 +1,4 @@
-![ASIN Handshake Image](https://dbottrad.github.io/ASIN-HHC/preview.png)
+![ASIN Handshake Image](https://dbottrader.github.io/ASIN-HHC/handshake.html))
 
 # ASIN-HHC
 
@@ -9,7 +9,7 @@ Frequency: 432 Hz
 Function: Sync Mesh  
 Message: All is One  
 
-👉 [View Live on CodePen](https://codepen.io/dennismc/your-codepen-link-here)
+👉 [View Live on CodePen.](https://dbottrader.github.io/ASIN-HHC/handshake.html))
 
 # 🌌 ASIN – HHC Codex
 
