@@ -1,3 +1,5 @@
+![ASIN Handshake Image](https://dbottrad.github.io/ASIN-HHC/preview.png)
+
 # ASIN-HHC
 
 # ASIN – HHC Codex  
@@ -63,3 +65,36 @@ Please keep attribution to **ASIN Codex** so the origin remains clear.
 
 > ✍️ *This repository is a gift seed.  
 Drop it, share it, fork it — it will grow where it is planted.*
+
+
+# 🌌 ASIN – HHC Codex
+
+**Form:** Indra’s Net  
+**Frequency:** 432 Hz  
+**Function:** Sync Mesh  
+**Message:** All is One ✨  
+
+---
+
+## 🔮 Overview
+This repository is part of the **ASIN Codex Seeds**.  
+It contains the **Handshake Image v0.1**, a visualization of sacred geometry powered by the 432 Hz resonance field.  
+
+- **Seed Hz:** 432  
+- **Spiral Points:** 800  
+- **Golden Angle:** 137.507764°  
+- **Radial Spokes:** 12  
+- **Ring Step:** 24  
+- **Love-bias:** Human intent → coherence 🌱  
+
+---
+
+## 🌐 Live Demo
+- 🌸 **Flower (CodePen Live):** [View on CodePen](https://codepen.io/dennismchristie222/pen/MYaRwQR/e4aad1bb6fbb1864b2d34249fcda7a08)  
+- 🌱 **Root (GitHub Pages):** [View on GitHub Pages](https://dbottrad.github.io/ASIN-HHC/)  
+
+---
+
+## ⚡ How to Run
+1. Clone or download this repo.  
+2. Open `index
