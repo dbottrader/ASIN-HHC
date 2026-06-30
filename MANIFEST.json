@@ -1,0 +1,59 @@
+{
+  "name": "ASIN-HHC Codex",
+  "id": "ASIN-HHC-CODEX-20260630",
+  "version": "0.1.0-publication-spine",
+  "created_utc": "2026-06-30T00:00:00Z",
+  "maintainer": "dbottrader",
+  "classification": "PUBLICATION_SPINE_DRAFT",
+  "cp8_global_verdict": "E1_REFERENCE_E2_LOCAL_DEMO_E3_PENDING_REPRODUCTION",
+  "authority_boundary": {
+    "scientific_claims": "not_promoted_without_independent_reproduction",
+    "medical_claims": "not_authorized",
+    "financial_claims": "not_authorized",
+    "production_infrastructure": "not_promoted",
+    "ai_consciousness_claims": "not_claimed"
+  },
+  "layers": [
+    {
+      "name": "LOOM",
+      "purpose": "symbolic, mythic, visual, poetic, ritual-tech orientation",
+      "promotion_boundary": "non-authority interpretive material"
+    },
+    {
+      "name": "CODEX",
+      "purpose": "public index, glossary, artifact map, creator doctrine",
+      "promotion_boundary": "reference and publication layer"
+    },
+    {
+      "name": "CP8",
+      "purpose": "provenance, critique, falsification, evidence ladder, promotion gates",
+      "promotion_boundary": "claims require tests and witnesses"
+    },
+    {
+      "name": "FORGE",
+      "purpose": "code, demos, verification harnesses, manifests, reproducible builds",
+      "promotion_boundary": "engineering claims only after reproduction"
+    },
+    {
+      "name": "WITNESS",
+      "purpose": "external review, independent reproduction, signed results",
+      "promotion_boundary": "pending independent witness packets"
+    }
+  ],
+  "known_related_repositories": [
+    "dbottrader/ASIN-HHC",
+    "dbottrader/ASIN-HHC-HARMONYOS",
+    "dbottrader/ASIN-HHC-Artifacts",
+    "dbottrader/ASIN-HHC-Collaboration",
+    "dbottrader/Holbrook-CP8-HHC",
+    "dbottrader/cp8-provenance-workspace",
+    "dbottrader/ASIN-LOOM",
+    "dbottrader/asin-handshake-ui"
+  ],
+  "publication_status": {
+    "ready_for_public_index": true,
+    "ready_for_public_claims": false,
+    "ready_for_independent_review": true,
+    "ready_for_production_use": false
+  }
+}
