@@ -1,0 +1,26 @@
+name: Codex Verify
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - codex-publication-spine-20260630
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check Python syntax
+        run: python -m py_compile tools/hash_manifest.py
+
+      - name: Generate hash manifest smoke test
+        run: python tools/hash_manifest.py CODEX_INDEX.md MANIFEST.json docs artifacts glyphs protocols witness loom public > /tmp/HASH_MANIFEST.json
+
+      - name: Validate JSON files
+        run: |
+          python -m json.tool MANIFEST.json > /tmp/MANIFEST.pretty.json
+          python -m json.tool /tmp/HASH_MANIFEST.json > /tmp/HASH_MANIFEST.pretty.json
