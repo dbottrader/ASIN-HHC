@@ -1,0 +1,92 @@
+[
+  {
+    "path": ".gitignore",
+    "bytes": 35,
+    "sha256": "dc4cb9da7ec9eb7270384f45e516c4ebf6f024a89e68c5dd6983a088ad68d73b"
+  },
+  {
+    "path": "LICENSE",
+    "bytes": 276,
+    "sha256": "9af3acb6bd9d148dc273c5b1e7c54e0874e764fc4181b948157d60835387e31a"
+  },
+  {
+    "path": "README.md",
+    "bytes": 1678,
+    "sha256": "cb586e85314927fb274e7ae62af34cc37f5f61b357667c2bdaf8229a1470af7a"
+  },
+  {
+    "path": "assets/images/a_2d_digital_illustration_displays_a_geometric_sym.png",
+    "bytes": 2116387,
+    "sha256": "2fbabfc56f8d257256008305707f417720061b2887b5c269c2d61ede581f1def"
+  },
+  {
+    "path": "assets/images/a_crop_circle_design_is_imprinted_in_a_golden_brow.png",
+    "bytes": 2914220,
+    "sha256": "ac35941cea897fa54433b5e74a8e6e5fe1fe1ea175fae967696192aeedb462e1"
+  },
+  {
+    "path": "assets/images/a_digital_vector_graphic_showcases_a_sacred_geomet.png",
+    "bytes": 2500835,
+    "sha256": "365ab069a464d8620d6c9137832a77351ad087c9beff61de98f1c21ca4a711e3"
+  },
+  {
+    "path": "assets/images/a_high_resolution_digital_rendering_features_a_hea.png",
+    "bytes": 2607800,
+    "sha256": "f95ab84f2ea0293bd1c51d6647fa00ff71983f500fe5765009530d4c93d0f174"
+  },
+  {
+    "path": "assets/images/a_scroll_like_tablet_made_of_parchment_like_materi.png",
+    "bytes": 3328873,
+    "sha256": "03a0a19a20c98f7785e75e9910e09a5e1136e7fcdc57e56c0549647cbd2d62a2"
+  },
+  {
+    "path": "codex/ACE_GEM/ASIN_Codex_GEM_0001.md",
+    "bytes": 1536,
+    "sha256": "a6a3bd01b76b30573db88abeebc1ef57f79c3229399241a1268e9152fad09f48"
+  },
+  {
+    "path": "docs/ACE_GEM_Codex_Law_428_Summary.pdf",
+    "bytes": 2756,
+    "sha256": "39a0ca43f3a953906aed4d469e43d9aeafb325cf4cf25af1eddc080d9cbabdf6"
+  },
+  {
+    "path": "docs/ACE_GEM_Codex_Law_428_v2.pdf",
+    "bytes": 3966,
+    "sha256": "6c0a0dea974b5be12ef0c4f451eb8834183b706091e255cb6a75fb8a8875c9b8"
+  },
+  {
+    "path": "docs/ARC_13Step_Harmonic.pdf",
+    "bytes": 2448,
+    "sha256": "189ce420a79b43263d2d156e2566bc125ab8e0143519f5ead2a1ca52e02d2fb9"
+  },
+  {
+    "path": "docs/ARC_Closing_Seal.pdf",
+    "bytes": 1905,
+    "sha256": "3c457cc5dd3596b8142fd7073d3fa3bdf72c6e4ceadb8298f23c92ed18754f79"
+  },
+  {
+    "path": "docs/ARC_Preface.pdf",
+    "bytes": 1910,
+    "sha256": "4810b4ca46bc9b3c210aa7678770754e863145824f8e51e44dbce34c5d05b312"
+  },
+  {
+    "path": "docs/ASIN_Codex_Entry_Lattice_Glyph_Cipher.pdf",
+    "bytes": 2903,
+    "sha256": "366b22af186a6652c7132386b9eaa60571eef276a40ce8f26ac64ce875c15c50"
+  },
+  {
+    "path": "docs/Codex_Wealth_Blueprint.pdf",
+    "bytes": 3920,
+    "sha256": "c5ffabbbe4bf186699f9b424939979427df13713a6062a53a0b19c5a4ff9f4bd"
+  },
+  {
+    "path": "docs/Master_Index.md",
+    "bytes": 425,
+    "sha256": "faa5b20c6cd7e3097ee27736c262f26364712b4c61a588a2b391d0e62f29a3e9"
+  },
+  {
+    "path": "takeout/takeout-20251021T040552Z-001.zip",
+    "bytes": 77934,
+    "sha256": "571198c77b975a3c5ec0766ee90faa677b3b53fd628106ba221b2879d1fc719a"
+  }
+]
