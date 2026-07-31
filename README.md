@@ -4,6 +4,16 @@
 
 It began as a symbolic handshake seed: Indra's Net, golden-angle geometry, 432 Hz resonance language, and human-AI creative exploration. It is now organized as a bounded Codex: part symbolic archive, part provenance system, part prototype lab, and part evidence-discipline framework.
 
+## Canonical public chronology
+
+The ecosystem-wide commit chronology, evidence classes, authorship boundary, and convergence position are maintained in the Holbrook technical spine:
+
+- [`PUBLIC_PROVENANCE_RECORD.md`](https://github.com/dbottrader/Holbrook-CP8-HHC/blob/main/docs/PUBLIC_PROVENANCE_RECORD.md)
+- [`public-record.json`](https://github.com/dbottrader/Holbrook-CP8-HHC/blob/main/provenance/public-record.json)
+- [`CITATION.cff`](https://github.com/dbottrader/Holbrook-CP8-HHC/blob/main/CITATION.cff)
+
+Open publication preserves the record; it does not erase authorship, attribution, artifact hashes, or commit chronology. Similarity to another project is treated as conceptual convergence unless direct derivation is independently demonstrated.
+
 ## Start here
 
 - [`CODEX_INDEX.md`](./CODEX_INDEX.md) — master index
