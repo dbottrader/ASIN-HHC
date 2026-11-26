@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Generate SHA-256 manifest entries for Codex artifacts.
 
 Usage:
@@ -13,8 +12,8 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+from collections.abc import Iterable
 from pathlib import Path
-from typing import Iterable
 
 SKIP_DIRS = {".git", "__pycache__", ".pytest_cache", "node_modules", ".next", "dist", "build"}
 

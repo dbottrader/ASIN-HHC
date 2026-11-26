@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 lmc-init — Labyrinth Master Canon Bootstrap Loader
 Version: 1.0.0
@@ -23,9 +22,8 @@ import hashlib
 import json
 import os
 import sys
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
 
 # =============================================================================
 # CONFIGURATION (from LMC v1.0)
@@ -93,14 +91,14 @@ def atomic_write_json(file_path: Path, data: dict) -> None:
 
 
 def get_timestamp() -> str:
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
 # =============================================================================
 # CORE FUNCTIONS
 # =============================================================================
 
-def validate_directory_structure(base_path: Path) -> Dict[str, bool]:
+def validate_directory_structure(base_path: Path) -> dict[str, bool]:
     """Check that all expected LMC directories exist."""
     results = {}
     for directory in EXPECTED_DIRECTORIES:
@@ -109,7 +107,7 @@ def validate_directory_structure(base_path: Path) -> Dict[str, bool]:
     return results
 
 
-def load_canon_metadata(base_path: Path) -> Optional[Dict]:
+def load_canon_metadata(base_path: Path) -> dict | None:
     """Load basic metadata from the Master Canon document."""
     canon_path = base_path / CANON_FILE
     if not canon_path.exists():
@@ -123,25 +121,25 @@ def load_canon_metadata(base_path: Path) -> Optional[Dict]:
             "size_bytes": canon_path.stat().st_size,
             "sha256": compute_sha256(canon_path),
             "last_modified": datetime.fromtimestamp(
-                canon_path.stat().st_mtime, tz=timezone.utc
+                canon_path.stat().st_mtime, tz=UTC
             ).isoformat(),
             "contains_lmc_header": "LABYRINTH MASTER CANON" in content,
             "contains_core_laws": "Core Laws" in content,
             "contains_evidence_ladder": "Evidence Ladder" in content,
         }
         return metadata
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001 — canon load must surface any failure as an error dict, not crash validation
         return {"error": str(e)}
 
 
-def check_evidence_ladder_compliance(artifacts: List[Path]) -> List[Dict]:
+def check_evidence_ladder_compliance(artifacts: list[Path]) -> list[dict]:
     """
     Basic Evidence Ladder enforcement check on JSON artifacts.
     Prevents claiming evidence_level higher than supported by presence of receipts/verification.
     """
     results = []
     for artifact_path in artifacts:
-        if not artifact_path.suffix == ".json":
+        if artifact_path.suffix != ".json":
             continue
         try:
             with open(artifact_path, "r", encoding="utf-8") as f:
@@ -174,7 +172,7 @@ def check_evidence_ladder_compliance(artifacts: List[Path]) -> List[Dict]:
                 "has_hash": has_hash,
                 "has_signature": has_signature,
             })
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001 — per-artifact check must record any failure and continue the scan
             results.append({
                 "file": str(artifact_path),
                 "error": str(e)
@@ -182,7 +180,7 @@ def check_evidence_ladder_compliance(artifacts: List[Path]) -> List[Dict]:
     return results
 
 
-def generate_init_report(base_path: Path) -> Dict:
+def generate_init_report(base_path: Path) -> dict:
     """Generate a comprehensive initialization status report."""
     report = {
         "timestamp": get_timestamp(),
